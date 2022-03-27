@@ -3,26 +3,28 @@ var score = 0;
 
 var card1 = document.getElementById("card1").innerHTML =  Math.floor(Math.random()*20)+1;
 var card2 = document.getElementById("card2").innerHTML =  Math.floor(Math.random()*20)+1;
-var card3 = document.getElementById("card3");
+var card3 = document.getElementById("card3").innerHTML = "?";
     document.getElementById("round").innerHTML = "Round "+ (count+1);
     
     document.getElementById("btn1").onclick = function () {
+        document.getElementById("card1").innerHTML =  Math.floor(Math.random()*20)+1;
+        document.getElementById("card2").innerHTML =  Math.floor(Math.random()*20)+1;
         document.getElementById("round").innerHTML = "Round "+ (count+1);
-        document.getElementById("d3").innerHTML =  "Card 3: ";
+        document.getElementById("deck").innerHTML =  "Card 3: ";
         var card3 = document.getElementById("card3").innerHTML =  Math.floor(Math.random()*20)+1;
 
         if(card3 < card1 && card3 > card2 ){
-            document.getElementById("lw").innerHTML = "WIN";
+            document.getElementById("status").innerHTML = "Nice! You won.";
             score++;
         }
         
         else if( card3 < card2 && card3 > card1  ){
-            document.getElementById("lw").innerHTML = "WIN";
+            document.getElementById("status").innerHTML = "Nice! You won.";
             score++;
         }
         
         else{
-            document.getElementById("lw").innerHTML = "LOSE";
+            document.getElementById("status").innerHTML = "Oh no! You lost.";
             score -= 1;   
         }
 
@@ -41,11 +43,14 @@ var card3 = document.getElementById("card3");
     };
 
     document.getElementById("btn2").onclick = function () {
+        document.getElementById("card1").innerHTML =  Math.floor(Math.random()*20)+1;
+        document.getElementById("card2").innerHTML =  Math.floor(Math.random()*20)+1;
         document.getElementById("round").innerHTML = "Round "+ (count+1);
-        document.getElementById("d3").innerHTML =  "Card 3: ";
+        document.getElementById("deck").innerHTML =  "Card 3: ";
 
         var card3 = document.getElementById("card3").innerHTML =  Math.floor(Math.random()*20)+1;
-        document.getElementById("lw").innerHTML = "";
+
+        document.getElementById("status").innerHTML = "No Deal!";
         count++;
 
         if (count ==5){
@@ -61,30 +66,32 @@ var card3 = document.getElementById("card3");
         score-=(1/2);   
     };
 
-
+    //When two cards are identical
     if( card1 == card2){  
-        
-        document.getElementById("btn2").innerHTML = "LOWER";
-        document.getElementById("btn1").innerHTML = "HIGHER";
+
+        document.getElementById("btn1").innerHTML = "Higher";
+        document.getElementById("btn2").innerHTML = "Lower";
 
 
         document.getElementById("btn1").onclick = function () {
+            document.getElementById("card1").innerHTML =  Math.floor(Math.random()*20)+1;
+            document.getElementById("card2").innerHTML =  Math.floor(Math.random()*20)+1;
             document.getElementById("round").innerHTML = "Round "+ (count+1);
             document.getElementById("c3").innerHTML =  "Card 3: ";
             var card3 = document.getElementById("card3").innerHTML =  Math.floor(Math.random()*20)+1;
 
             if(card3 > card1 && card3 > card2){
-                document.getElementById("lw").innerHTML = "WIN";
+                document.getElementById("status").innerHTML = "Nice! You won.";
                 score++;
             }
 
             else if(card3 == card1 && card3 == card2){
-                document.getElementById("lw").innerHTML = "LOSE";
+                document.getElementById("status").innerHTML = "Oh no! You lost.";
                 score--;
             }
             
             else{
-                document.getElementById("lw").innerHTML = "LOSE";
+                document.getElementById("status").innerHTML = "Oh no! You lost.";
                 score--;}
             
             count++;
@@ -103,21 +110,23 @@ var card3 = document.getElementById("card3");
 
 
         document.getElementById("btn2").onclick = function () {
+            document.getElementById("card1").innerHTML =  Math.floor(Math.random()*20)+1;
+            document.getElementById("card2").innerHTML =  Math.floor(Math.random()*20)+1;
             document.getElementById("round").innerHTML = "Round "+ (count+1);
-            document.getElementById("d3").innerHTML =  "Card 3: ";
+            document.getElementById("deck").innerHTML =  "Card 3: ";
             var card3 = document.getElementById("card3").innerHTML =  Math.floor(Math.random()*20)+1;
 
             if(card3 < card1 && card3 < card2){
-                document.getElementById("lw").innerHTML = "WIN";
+                document.getElementById("status").innerHTML = "Nice! You won.";
                 score++;
             }
             else if(card3 == card1 && card3 == card2){
-                document.getElementById("lw").innerHTML = "LOSE";
+                document.getElementById("status").innerHTML = "Oh no! You lost.";
                 score--;
             }
             
             else{
-                document.getElementById("lw").innerHTML = "LOSE";
+                document.getElementById("status").innerHTML = "Oh no! You lost.";
                 score--;
             };
 
